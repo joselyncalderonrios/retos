@@ -1,0 +1,58 @@
+<div class="card-header row text-center font-weight-bold">
+    <div class="col-12">
+        TABLE PEOPLES
+    </div>
+</div>
+
+
+
+<div class="card-body" style="border-radius: 10px; padding: 0px 30px; margin-bottom: 20px;">
+<div class="col-12">
+    <div class="table-responsive" style="opacity: 0.9; border-radius: 15px; box-shadow: 2px 1px 26px 0px rgba(0,0,0,0.35);">
+        <table mat-table [dataSource]="personas" style="width: 100%;">
+
+            <ng-container matColumnDef="genero">
+                <th mat-header-cell *matHeaderCellDef style="font-weight: normal; font-size: 12px; color: #070606; text-align: left;"> GENERO </th>
+                <td mat-cell *matCellDef="let element" style="text-align: left;">{{element.gender}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef style="font-weight: normal; font-size: 12px; color: #111010; text-align: left;"> NOMBRE </th>
+                <td mat-cell *matCellDef="let element" style="text-align: left;">{{element.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="ubicacion">
+                <th mat-header-cell *matHeaderCellDef style="font-weight: normal; font-size: 12px; color: #080808; text-align: left;"> UBICACION </th>
+                <td mat-cell *matCellDef="let element" style="text-align: left;">{{element.location}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="correo">
+                <th mat-header-cell *matHeaderCellDef style="font-weight: normal; font-size: 12px; color: #1b1a1a; text-align: center;"> EMAIL </th>
+                <td mat-cell *matCellDef="let element" style="text-align: left;">{{element.email}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef style="font-weight: normal; font-size: 12px; color: #131212; text-align: center;"> FECHA DE NAC </th>
+                <td mat-cell *matCellDef="let element" style="text-align: left;">{{element.dob}}</td>
+            </ng-container>       
+
+            <ng-container matColumnDef="fotografia">
+                <th mat-header-cell *matHeaderCellDef style="font-weight: normal; font-size: 12px; color: #050505; text-align: center;"> FOTOGRAFIA </th>
+                <td mat-cell *matCellDef="let element" style="text-align: left;">
+                    <img [src]="element.picture" alt="Fotografía de perfil" width="50" height="50">
+                </td>
+            </ng-container>    
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" class="color-page-tr"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSize]="itemsPerPage" [pageSizeOptions]="[5, 10, 20]" [length]="total_personas"  showFirstLastButtons></mat-paginator> 
+       
+    </div>
+</div>
+</div> 
+
+
+  
+  
